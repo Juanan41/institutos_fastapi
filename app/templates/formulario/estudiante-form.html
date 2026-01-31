@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include "fragments/head.html" %}
+</head>
+
+<body>
+
+{% include "fragments/navbar.html" %}
+
+<main class="content-container">
+
+<h2>Crear Estudiante</h2>
+
+<form method="post">
+
+    <label>Nombre</label>
+    <input type="text" name="nombre" required>
+
+    <label>Edad</label>
+    <input type="number" name="edad">
+
+    <label>Instituto</label>
+    <select name="instituto_id">
+        {% for i in institutos %}
+            <option value="{{ i.id }}">{{ i.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Guardar</button>
+
+</form>
+
+</main>
+
+{% include "fragments/footer.html" %}
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include "fragments/head.html" %}
+</head>
+
+<body>
+
+{% include "fragments/navbar.html" %}
+
+<main class="content-container">
+
+    <h1>Gestión de Institutos</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Institutos</h3>
+            <a href="/institutos" class="btn blue">Entrar</a>
+        </div>
+
+        <div class="card">
+            <h3>Estudiantes</h3>
+            <a href="/estudiantes" class="btn green">Entrar</a>
+        </div>
+
+    </div>
+
+</main>
+
+{% include "fragments/footer.html" %}
+
+<script src="/static/script.js"></script>
+</body>
+</html>

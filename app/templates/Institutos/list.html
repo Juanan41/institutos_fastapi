@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include "fragments/head.html" %}
+</head>
+
+<body>
+
+{% include "fragments/navbar.html" %}
+
+<main class="content-container">
+
+<h2>Listado de Institutos</h2>
+
+<a href="/institutos/nuevo" class="btn blue">Nuevo Instituto</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+    </tr>
+
+    {% for i in institutos %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.direccion }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</main>
+
+{% include "fragments/footer.html" %}
+
+</body>
+</html>
