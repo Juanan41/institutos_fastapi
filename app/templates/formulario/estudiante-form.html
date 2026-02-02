@@ -2,38 +2,61 @@
 <html lang="es">
 
 <head>
+    <!-- Carga el HEAD común (title, css, meta, etc) -->
     {% include "fragments/head.html" %}
 </head>
 
 <body>
 
+<!-- Barra de navegación común -->
 {% include "fragments/navbar.html" %}
 
+<!-- Contenedor principal -->
 <main class="content-container">
 
-<h2>Crear Estudiante</h2>
+    <!-- Título de la página -->
+    <h2>Crear Estudiante</h2>
 
-<form method="post">
+    <!-- Formulario que envía datos por POST -->
+    <form method="post">
 
-    <label>Nombre</label>
-    <input type="text" name="nombre" required>
+        <!-- Campo nombre -->
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
 
-    <label>Edad</label>
-    <input type="number" name="edad">
+        <!-- Campo apellidos -->
+        <label>Apellidos</label>
+        <input type="text" name="apellidos" required>
 
-    <label>Instituto</label>
-    <select name="instituto_id">
-        {% for i in institutos %}
-            <option value="{{ i.id }}">{{ i.nombre }}</option>
-        {% endfor %}
-    </select>
+        <!-- Campo DNI -->
+        <label>DNI</label>
+        <input type="text" name="dni" required>
 
-    <button type="submit">Guardar</button>
+        <!-- Campo email -->
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-</form>
+        <!-- Selector de instituto -->
+        <label>Instituto</label>
+        <select name="instituto_id" required>
+
+            <!-- Recorre lista de institutos recibidos desde FastAPI -->
+            {% for i in institutos %}
+                <option value="{{ i.id }}">
+                    {{ i.nombre }}
+                </option>
+            {% endfor %}
+
+        </select>
+
+        <!-- Botón enviar -->
+        <button type="submit">Guardar</button>
+
+    </form>
 
 </main>
 
+<!-- Pie de página común -->
 {% include "fragments/footer.html" %}
 
 </body>

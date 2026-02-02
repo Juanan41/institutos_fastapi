@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include "fragments/head.html" %}
+</head>
+
+<body>
+
+{% include "fragments/navbar.html" %}
+
+<main class="content-container">
+
+<h2>Listado de Estudiantes</h2>
+
+<a href="/estudiantes/nuevo" class="btn blue">Nuevo Estudiante</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Instituto</th>
+    </tr>
+
+    {% for e in estudiantes %}
+    <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.nombre }}</td>
+        <td>{{ e.apellidos }}</td>
+        <td>{{ e.email }}</td>
+        <td>{{ e.instituto.nombre }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</main>
+
+{% include "fragments/footer.html" %}
+
+</body>
+</html>

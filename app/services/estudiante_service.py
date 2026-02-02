@@ -1,5 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
+from app.models.instituto import Instituto
+
 
 from app.models.estudiante import Estudiante
 from app.repositories.estudiante_repository import EstudianteRepository
@@ -38,3 +40,8 @@ class EstudianteService:
         )
 
         return self.repo.save(db, estudiante)
+
+    def get_all_institutos(self, db):
+         return db.query(Instituto).all()
+    
+        

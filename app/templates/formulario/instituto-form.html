@@ -2,32 +2,69 @@
 <html lang="es">
 
 <head>
+    <!-- Cabecera común -->
     {% include "fragments/head.html" %}
 </head>
 
 <body>
 
+<!-- Menú superior -->
 {% include "fragments/navbar.html" %}
 
+<!-- Contenedor -->
 <main class="content-container">
 
-<h2>Crear Instituto</h2>
+    <!-- Título -->
+    <h2>Crear Instituto</h2>
 
-<form method="post">
+    <!-- Formulario POST -->
+    <form method="post">
 
-    <label>Nombre</label>
-    <input type="text" name="nombre" required>
+        <!-- Nombre instituto -->
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
 
-    <label>Dirección</label>
-    <input type="text" name="direccion">
+        <!-- Dirección -->
+        <label>Dirección</label>
+        <input type="text" name="direccion" required>
 
-    <button type="submit">Guardar</button>
+        <!-- Ciudad -->
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" required>
 
-</form>
+        <!-- Teléfono -->
+        <label>Teléfono</label>
+        <input type="text" name="telefono" required>
+
+        <!-- Email -->
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <!-- Número de profesores -->
+        <label>Número de profesores</label>
+        <input type="number" name="numero_profesores" required>
+
+        <!-- Tipo de instituto -->
+        <label>Tipo</label>
+        <select name="tipo">
+            <option value="Publico">Público</option>
+            <option value="Privado">Privado</option>
+        </select>
+
+        <!-- Año fundación -->
+        <label>Año fundación</label>
+        <input type="date" name="anio_fundacion" required>
+
+        <!-- Botón -->
+        <button type="submit">Guardar</button>
+
+    </form>
 
 </main>
 
+<!-- Footer -->
 {% include "fragments/footer.html" %}
 
 </body>
 </html>
+
