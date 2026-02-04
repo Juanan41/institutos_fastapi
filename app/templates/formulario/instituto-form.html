@@ -18,47 +18,81 @@
     <h2>Crear Instituto</h2>
 
     <!-- Formulario POST -->
-    <form method="post">
+    <form method="post"
+      action="{% if instituto %}
+                /institutos/{{ instituto.id }}/editar
+              {% else %}
+                /institutos/nuevo
+              {% endif %}">
 
-        <!-- Nombre instituto -->
-        <label>Nombre</label>
-        <input type="text" name="nombre" required>
+    <!-- Nombre -->
+    <label>Nombre</label>
+    <input type="text"
+           name="nombre"
+           required
+           value="{{ instituto.nombre if instituto else '' }}">
 
-        <!-- Dirección -->
-        <label>Dirección</label>
-        <input type="text" name="direccion" required>
+    <!-- Dirección -->
+    <label>Dirección</label>
+    <input type="text"
+           name="direccion"
+           required
+           value="{{ instituto.direccion if instituto else '' }}">
 
-        <!-- Ciudad -->
-        <label>Ciudad</label>
-        <input type="text" name="ciudad" required>
+    <!-- Ciudad -->
+    <label>Ciudad</label>
+    <input type="text"
+           name="ciudad"
+           value="{{ instituto.ciudad if instituto else '' }}">
 
-        <!-- Teléfono -->
-        <label>Teléfono</label>
-        <input type="text" name="telefono" required>
+    <!-- Teléfono -->
+    <label>Teléfono</label>
+    <input type="text"
+           name="telefono"
+           value="{{ instituto.telefono if instituto else '' }}">
 
-        <!-- Email -->
-        <label>Email</label>
-        <input type="email" name="email" required>
+    <!-- Email -->
+    <label>Email</label>
+    <input type="email"
+           name="email"
+           value="{{ instituto.email if instituto else '' }}">
 
-        <!-- Número de profesores -->
-        <label>Número de profesores</label>
-        <input type="number" name="numero_profesores" required>
+    <!-- Número de profesores -->
+    <label>Número de profesores</label>
+    <input type="number"
+           name="numero_profesores"
+           value="{{ instituto.numero_profesores if instituto else '' }}">
 
-        <!-- Tipo de instituto -->
-        <label>Tipo</label>
-        <select name="tipo">
-            <option value="Publico">Público</option>
-            <option value="Privado">Privado</option>
-        </select>
+    <!-- Tipo -->
+    <label>Tipo</label>
+    <select name="tipo">
+        <option value="Publico"
+            {% if instituto and instituto.tipo == "Publico" %}selected{% endif %}>
+            Público
+        </option>
+        <option value="Privado"
+            {% if instituto and instituto.tipo == "Privado" %}selected{% endif %}>
+            Privado
+        </option>
+    </select>
 
-        <!-- Año fundación -->
-        <label>Año fundación</label>
-        <input type="date" name="anio_fundacion" required>
+    <!-- Año fundación -->
+    <label>Año fundación</label>
+    <input type="date"
+           name="anio_fundacion"
+           value="{{ instituto.anio_fundacion if instituto else '' }}">
 
-        <!-- Botón -->
-        <button type="submit">Guardar</button>
+    <!-- Botón -->
+    <button type="submit">
+        {% if instituto %}
+            Actualizar
+        {% else %}
+            Guardar
+        {% endif %}
+    </button>
 
-    </form>
+</form>
+
 
 </main>
 

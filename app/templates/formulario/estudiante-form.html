@@ -18,41 +18,67 @@
     <h2>Crear Estudiante</h2>
 
     <!-- Formulario que envía datos por POST -->
-    <form method="post">
+    <form method="post"
+      action="{% if estudiante %}
+                /estudiantes/{{ estudiante.id }}/editar
+              {% else %}
+                /estudiantes/nuevo
+              {% endif %}">
 
-        <!-- Campo nombre -->
-        <label>Nombre</label>
-        <input type="text" name="nombre" required>
+    <!-- Nombre -->
+    <label>Nombre</label>
+    <input type="text"
+           name="nombre"
+           required
+           value="{{ estudiante.nombre if estudiante else '' }}">
 
-        <!-- Campo apellidos -->
-        <label>Apellidos</label>
-        <input type="text" name="apellidos" required>
+    <!-- Apellidos -->
+    <label>Apellidos</label>
+    <input type="text"
+           name="apellidos"
+           required
+           value="{{ estudiante.apellidos if estudiante else '' }}">
 
-        <!-- Campo DNI -->
-        <label>DNI</label>
-        <input type="text" name="dni" required>
+    <!-- DNI -->
+    <label>DNI</label>
+    <input type="text"
+           name="dni"
+           required
+           value="{{ estudiante.dni if estudiante else '' }}">
 
-        <!-- Campo email -->
-        <label>Email</label>
-        <input type="email" name="email" required>
+    <!-- Email -->
+    <label>Email</label>
+    <input type="email"
+           name="email"
+           value="{{ estudiante.email if estudiante else '' }}">
 
-        <!-- Selector de instituto -->
-        <label>Instituto</label>
-        <select name="instituto_id" required>
+    <!-- Instituto -->
+    <label>Instituto</label>
+    <select name="instituto_id" required>
 
-            <!-- Recorre lista de institutos recibidos desde FastAPI -->
-            {% for i in institutos %}
-                <option value="{{ i.id }}">
-                    {{ i.nombre }}
-                </option>
-            {% endfor %}
+        {% for i in institutos %}
+            <option value="{{ i.id }}"
+                {% if estudiante and estudiante.instituto_id == i.id %}
+                    selected
+                {% endif %}
+            >
+                {{ i.nombre }}
+            </option>
+        {% endfor %}
 
-        </select>
+    </select>
 
-        <!-- Botón enviar -->
-        <button type="submit">Guardar</button>
+    <!-- Botón -->
+    <button type="submit">
+        {% if estudiante %}
+            Actualizar
+        {% else %}
+            Guardar
+        {% endif %}
+    </button>
 
-    </form>
+</form>
+
 
 </main>
 
