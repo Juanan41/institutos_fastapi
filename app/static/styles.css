@@ -1,65 +1,149 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
+/* =======================
+   RESET
+======================= */
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: white;
+}
+
+/* =======================
+   NAVBAR
+======================= */
 
 .navbar {
-    background: #1f2937;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+  background: #020617;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 25px #0ff;
 }
 
-.navbar h1 {
-    white-space: nowrap;
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
 }
-
 
 .menu a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-.menu {
-    white-space: nowrap;
+.menu a:hover {
+  color: cyan;
+  text-shadow: 0 0 8px cyan;
 }
 
+/* =======================
+   CONTENIDO
+======================= */
 
 .content-container {
-    padding: 40px;
+  padding: 80px 20px;
+  text-align: center;
 }
 
-.footer {
-    background: #111827;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 50px;
+h1 {
+  font-size: 48px;
+  margin-bottom: 60px;
+  color: cyan;
+  text-shadow: 0 0 20px cyan;
 }
+
+/* =======================
+   CARDS
+======================= */
 
 .cards {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 200px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    text-align: center;
+  background: rgba(0,0,0,0.6);
+  width: 260px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00ffff70;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 0 45px cyan;
+}
+
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+/* =======================
+   BOTONES NEON
+======================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.blue {
+  background: linear-gradient(45deg, #2563eb, #00f);
+  box-shadow: 0 0 15px #2563eb;
+}
+
+.green {
+  background: linear-gradient(45deg, #16a34a, #00ff88);
+  box-shadow: 0 0 15px #00ff88;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px white;
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+.footer {
+  margin-top: 120px;
+  padding: 25px;
+  text-align: center;
+  background: #020617;
+  box-shadow: 0 0 20px cyan;
+}
+
+/* =======================
+   EFECTO RESPIRAR BOTON
+======================= */
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px cyan; }
+  50% { box-shadow: 0 0 30px cyan; }
+  100% { box-shadow: 0 0 10px cyan; }
 }
 
 .btn {
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
+  animation: pulse 2.5s infinite;
 }
-
-.blue { background: #2563eb; }
-.green { background: #16a34a; }
