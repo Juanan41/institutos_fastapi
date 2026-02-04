@@ -71,8 +71,12 @@ def formulario_nuevo_instituto(request: Request):
         {"request": request}
     )
     
+# --------------------
+# FORM EDITAR INSTITUTO
+# --------------------
+
 @router.get("/{id}/editar", include_in_schema=False)
-def formulario_editar_instituto(
+def form_editar_instituto(
     id: int,
     request: Request,
     db: Session = Depends(get_db)
@@ -80,12 +84,45 @@ def formulario_editar_instituto(
     instituto = service.find_by_id(db, id)
 
     return templates.TemplateResponse(
-        "formulario/instituto-edit.html",
+        "formulario/instituto-form.html",
         {
             "request": request,
             "instituto": instituto
         }
     )
+
+
+@router.post("/{id}/editar", include_in_schema=False)
+def editar_instituto(
+    id: int,
+    nombre: str = Form(...),
+    direccion: str = Form(...),
+    ciudad: str = Form(None),
+    telefono: str = Form(None),
+    email: str = Form(None),
+    numero_profesores: int = Form(None),
+    tipo: str = Form(None),
+    anio_fundacion: str = Form(None),
+    db: Session = Depends(get_db)
+):
+    data = InstitutoCreate(
+        nombre=nombre,
+        direccion=direccion,
+        ciudad=ciudad,
+        telefono=telefono,
+        email=email,
+        numero_profesores=numero_profesores,
+        tipo=tipo,
+        anio_fundacion=anio_fundacion
+    )
+
+    service.update(db, id, data)
+
+    return RedirectResponse(
+        url="/institutos",
+        status_code=HTTP_303_SEE_OTHER
+    )
+
 
 @router.post("/{id}/editar", include_in_schema=False)
 def guardar_edicion_instituto(

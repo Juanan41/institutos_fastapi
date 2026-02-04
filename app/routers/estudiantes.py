@@ -68,6 +68,55 @@ def guardar_estudiante(
         url="/estudiantes",
         status_code=HTTP_303_SEE_OTHER
     )
+    
+# --------------------
+# FORM EDITAR ESTUDIANTE
+# --------------------
+
+@router.get("/{id}/editar", include_in_schema=False)
+def form_editar_estudiante(
+    id: int,
+    request: Request,
+    db: Session = Depends(get_db)
+):
+    estudiante = service.find_by_id(db, id)
+    institutos = instituto_service.find_all(db)
+
+    return templates.TemplateResponse(
+        "formulario/estudiante-form.html",
+        {
+            "request": request,
+            "estudiante": estudiante,
+            "institutos": institutos
+        }
+    )
+
+
+@router.post("/{id}/editar", include_in_schema=False)
+def editar_estudiante(
+    id: int,
+    nombre: str = Form(...),
+    apellidos: str = Form(...),
+    dni: str = Form(...),
+    email: str = Form(...),
+    instituto_id: int = Form(...),
+    db: Session = Depends(get_db)
+):
+    data = EstudianteCreate(
+        nombre=nombre,
+        apellidos=apellidos,
+        dni=dni,
+        email=email,
+        instituto_id=instituto_id
+    )
+
+    service.update(db, id, data)
+
+    return RedirectResponse(
+        url="/estudiantes",
+        status_code=HTTP_303_SEE_OTHER
+    )
+
 
 
 
