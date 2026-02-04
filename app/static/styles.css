@@ -12,11 +12,21 @@ body {
     justify-content: space-between;
 }
 
+.navbar h1 {
+    white-space: nowrap;
+}
+
+
 .menu a {
     color: white;
     margin-left: 15px;
     text-decoration: none;
 }
+
+.menu {
+    white-space: nowrap;
+}
+
 
 .content-container {
     padding: 40px;
