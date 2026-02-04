@@ -38,23 +38,12 @@
     <td>{{ e.email }}</td>
     <td>{{ e.instituto_id }}</td>
 
-    <td>
-        <div class="actions">
-
-            <!-- VER -->
-            <button class="action-btn"
-                onclick="verEstudiante({{e.id}})">👁</button>
-
-            <!-- EDITAR -->
-            <button class="action-btn action-edit"
-                onclick="editarEstudiante({{e.id}})">✏</button>
-
-            <!-- BORRAR -->
-            <button class="action-btn action-delete"
-                onclick="borrarEstudiante({{e.id}})">🗑</button>
-
-        </div>
+    <td class="acciones">
+        <a href="/estudiantes/{{ e.id }}">👁️</a>
+        <a href="/estudiantes/{{ e.id }}/editar">✏️</a>
+        <a href="#" onclick="confirmarBorradoEstudiante({{ e.id }})">🗑️</a>
     </td>
+
 </tr>
 {% endfor %}
 </tbody>

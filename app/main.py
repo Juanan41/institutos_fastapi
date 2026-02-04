@@ -23,6 +23,7 @@ from app.database import Base, engine
 # ================================
 from app.routers.institutos import router as institutos_router
 from app.routers.estudiantes import router as estudiantes_router
+from app.routers.institutos_web import router as institutos_web_router
 
 # ================================
 # Dependencias de base de datos
@@ -53,6 +54,7 @@ app = FastAPI(title="Institutos API")
 # ================================
 app.include_router(institutos_router)
 app.include_router(estudiantes_router)
+app.include_router(institutos_web_router)
 
 # ================================
 # Configurar motor de plantillas
@@ -128,3 +130,8 @@ def formulario_estudiante(request: Request, db: Session = Depends(get_db)):
             "institutos": institutos
         }
     )
+
+@app.get("/institutos/{id}/borrar")
+def borrar_instituto(id:int, db:Session=Depends(get_db)):
+    instituto_service.delete(db, id)
+    return RedirectResponse("/institutos", status_code=302)

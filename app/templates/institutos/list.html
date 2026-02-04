@@ -17,42 +17,48 @@
 
 <div class="table-container">
 <table class="neon-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in institutos %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.nombre }}</td>
+            <td>{{ i.direccion }}</td>
+            <td class="acciones">
 
-<thead>
-<tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Dirección</th>
-    <th>Acciones</th>
-</tr>
-</thead>
+                <!-- VER -->
+                <a href="/institutos/{{ i.id }}" title="Ver">
+                    👁️
+                </a>
 
-<tbody>
-{% for i in institutos %}
-<tr>
-    <td>{{ i.id }}</td>
-    <td>{{ i.nombre }}</td>
-    <td>{{ i.direccion }}</td>
+                <!-- EDITAR -->
+                <a href="/institutos/{{ i.id }}/editar" title="Editar">
+                    ✏️
+                </a>
 
-    <td>
-        <div class="actions">
+                <!-- BORRAR -->
+                <a href="#"
+                   onclick="confirmarBorradoInstituto({{ i.id }})"
+                   title="Borrar">
+                    🗑️
+                </a>
 
-            <button class="action-btn"
-                onclick="verInstituto({{i.id}})">👁</button>
-
-            <button class="action-btn action-edit"
-                onclick="editarInstituto({{i.id}})">✏</button>
-
-            <button class="action-btn action-delete"
-                onclick="borrarInstituto({{i.id}})">🗑</button>
-
-        </div>
-    </td>
-</tr>
-{% endfor %}
-</tbody>
-
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+
+<br>
+<a href="/" class="btn-volver">⬅ Volver</a>
+
 </div>
 
 <button class="back-btn" onclick="history.back()">⬅ Volver</button>

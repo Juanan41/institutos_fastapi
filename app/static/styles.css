@@ -300,3 +300,49 @@ footer {
 .back-btn:hover {
     transform: scale(1.1);
 }
+
+.neon-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px cyan;
+}
+
+.neon-table th {
+    background: linear-gradient(90deg,#00c6ff,#00ff99);
+    color: black;
+    padding: 12px;
+}
+
+.neon-table td {
+    padding: 12px;
+    text-align: center;
+    color: white;
+}
+
+.neon-table tr:nth-child(even){
+    background: rgba(255,255,255,0.05);
+}
+
+.acciones a {
+    margin: 0 8px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.acciones a:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 5px cyan);
+}
+
+.btn-volver {
+    padding: 10px 25px;
+    background: #00c6ff;
+    color: black;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 0 10px cyan;
+}

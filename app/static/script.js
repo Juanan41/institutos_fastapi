@@ -37,3 +37,15 @@ function borrarInstituto(id){
         window.location.href = "/institutos/borrar/" + id;
     }
 }
+
+function confirmarBorradoInstituto(id) {
+    if (confirm("¿Seguro que quieres borrar este instituto?")) {
+        window.location.href = `/institutos/${id}/borrar`;
+    }
+}
+
+function confirmarBorradoEstudiante(id) {
+    if (confirm("¿Seguro que quieres borrar este estudiante?")) {
+        window.location.href = `/estudiantes/${id}/borrar`;
+    }
+}

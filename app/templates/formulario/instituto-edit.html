@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "fragments/head.html" %}
+</head>
+<body>
+
+{% include "fragments/navbar.html" %}
+
+<h1>Editar Instituto</h1>
+
+<form method="post">
+
+    <label>Nombre</label>
+    <input type="text" name="nombre" value="{{ instituto.nombre }}" required>
+
+    <label>Dirección</label>
+    <input type="text" name="direccion" value="{{ instituto.direccion }}" required>
+
+    <label>Ciudad</label>
+    <input type="text" name="ciudad" value="{{ instituto.ciudad }}">
+
+    <label>Teléfono</label>
+    <input type="text" name="telefono" value="{{ instituto.telefono }}">
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ instituto.email }}">
+
+    <button type="submit">Guardar cambios</button>
+
+</form>
+
+<a href="/institutos">Volver</a>
+
+</body>
+</html>

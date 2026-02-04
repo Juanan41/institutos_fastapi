@@ -1,0 +1,15 @@
+{% include "fragments/head.html" %}
+{% include "fragments/navbar.html" %}
+
+<h1>Detalle Instituto</h1>
+
+<ul>
+  <li><b>Nombre:</b> {{ instituto.nombre }}</li>
+  <li><b>Dirección:</b> {{ instituto.direccion }}</li>
+  <li><b>Email:</b> {{ instituto.email }}</li>
+  <li><b>Teléfono:</b> {{ instituto.telefono }}</li>
+</ul>
+
+<a href="/institutos">⬅ Volver</a>
+
+{% include "fragments/footer.html" %}

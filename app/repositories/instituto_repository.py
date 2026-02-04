@@ -69,3 +69,4 @@ class InstitutoRepository:
             Estudiante.instituto_id == instituto_id,
             Estudiante.is_deleted == False
         ).all()
+
