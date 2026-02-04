@@ -1,129 +1,213 @@
+/* ================================
+   RESET
+================================ */
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: radial-gradient(circle at top, #020617, #000);
-  color: white;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #081425, #020617);
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* ================================
+   FONDO ESTRELLAS
+================================ */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(#00f7ff 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.25;
+    z-index: -1;
+}
 
+/* ================================
+   NAVBAR
+================================ */
 .navbar {
-  background: #020617;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0 25px cyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 2px solid #00f7ff;
+    box-shadow: 0 0 20px #00f7ff;
 }
 
 .logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: cyan;
-  text-shadow: 0 0 12px cyan;
+    font-size: 28px;
+    font-weight: bold;
+    color: #bdfcff;
+    text-shadow: 0 0 15px #00f7ff;
 }
 
-.menu a {
-  color: white;
-  margin-left: 25px;
-  text-decoration: none;
-  transition: 0.3s;
+.navbar ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
 }
 
-.menu a:hover {
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
+.navbar a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-/* CONTENIDO */
+.navbar a:hover {
+    color: #00f7ff;
+    text-shadow: 0 0 10px #00f7ff;
+}
 
+/* ================================
+   CONTENEDOR GENERAL
+================================ */
 .content-container {
-  padding: 90px 20px;
-  text-align: center;
+    padding: 60px;
 }
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 60px;
-  color: cyan;
-  text-shadow: 0 0 25px cyan;
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #7dfcff;
+    text-shadow: 0 0 25px #00f7ff;
 }
 
-/* CARDS */
-
+/* ================================
+   CARDS HOME
+================================ */
 .cards {
-  display: flex;
-  justify-content: center;
-  gap: 70px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
 .card {
-  background: rgba(0,0,0,0.6);
-  width: 260px;
-  padding: 45px 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #00ffff70;
-  transition: 0.4s;
+    background: #050b18;
+    width: 260px;
+    height: 200px;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+        0 0 20px #00f7ff,
+        inset 0 0 20px #00f7ff;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-18px) scale(1.05);
-  box-shadow: 0 0 60px cyan;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+        0 0 35px #00f7ff,
+        inset 0 0 25px #00f7ff;
 }
 
 .card h3 {
-  font-size: 26px;
-  margin-bottom: 25px;
+    margin-bottom: 25px;
+    font-size: 24px;
 }
 
-/* BOTONES */
-
+/* ================================
+   BOTONES
+================================ */
 .btn {
-  display: inline-block;
-  padding: 12px 36px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  letter-spacing: 1px;
-  animation: pulse 2.5s infinite;
-  transition: 0.3s;
+    display: inline-block;
+    padding: 12px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.blue {
-  background: linear-gradient(45deg, #2563eb, #00f);
-  box-shadow: 0 0 18px #2563eb;
+.btn.blue {
+    background: linear-gradient(90deg, #0047ff, #00f7ff);
+    box-shadow: 0 0 20px #00f7ff;
 }
 
-.green {
-  background: linear-gradient(45deg, #16a34a, #00ff88);
-  box-shadow: 0 0 18px #00ff88;
+.btn.green {
+    background: linear-gradient(90deg, #00ff87, #00f7ff);
+    box-shadow: 0 0 20px #00ff87;
 }
 
 .btn:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 45px white;
+    transform: scale(1.1);
+    box-shadow: 0 0 40px white;
 }
 
-/* FOOTER */
-
-.footer {
-  margin-top: 120px;
-  padding: 25px;
-  background: #020617;
-  text-align: center;
-  box-shadow: 0 0 20px cyan;
+/* ================================
+   TABLAS
+================================ */
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: #050b18;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 25px #00f7ff;
 }
 
-/* ANIMACION */
+thead {
+    background: linear-gradient(90deg, #00aaff, #00ff87);
+}
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 10px cyan; }
-  50% { box-shadow: 0 0 30px cyan; }
-  100% { box-shadow: 0 0 10px cyan; }
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+/* ================================
+   FORMULARIOS
+================================ */
+.form-box {
+    width: 380px;
+    background: #050b18;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #00f7ff;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background: #020617;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    box-shadow: inset 0 0 10px #00f7ff;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #00f7ff;
+    box-shadow: 0 0 20px #00f7ff;
 }

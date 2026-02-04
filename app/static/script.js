@@ -1,15 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Botones flotantes
+document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("mouseover", () => {
+        btn.style.boxShadow = "0 0 40px white";
+    });
 
-  // Animación entrada tarjetas
-  document.querySelectorAll(".card").forEach((card, i) => {
-    card.style.opacity = 0;
-    card.style.transform = "translateY(50px)";
+    btn.addEventListener("mouseout", () => {
+        btn.style.boxShadow = "";
+    });
+});
 
-    setTimeout(() => {
-      card.style.transition = "all 0.8s ease";
-      card.style.opacity = 1;
-      card.style.transform = "translateY(0)";
-    }, i * 300);
-  });
+// Animación suave cards
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("mousemove", e => {
+        card.style.transform = "scale(1.05)";
+    });
 
+    card.addEventListener("mouseleave", e => {
+        card.style.transform = "scale(1)";
+    });
 });
