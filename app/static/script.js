@@ -1,21 +1,39 @@
-// Botones flotantes
-document.querySelectorAll(".btn").forEach(btn => {
-    btn.addEventListener("mouseover", () => {
-        btn.style.boxShadow = "0 0 40px white";
-    });
+// ================================
+// ESTUDIANTES
+// ================================
 
-    btn.addEventListener("mouseout", () => {
-        btn.style.boxShadow = "";
-    });
-});
+function verEstudiante(id){
+    alert("Ver estudiante " + id);
+}
 
-// Animación suave cards
-document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("mousemove", e => {
-        card.style.transform = "scale(1.05)";
-    });
+function editarEstudiante(id){
+    if(confirm("¿Editar estudiante " + id + "?")){
+        window.location.href = "/estudiantes/editar/" + id;
+    }
+}
 
-    card.addEventListener("mouseleave", e => {
-        card.style.transform = "scale(1)";
-    });
-});
+function borrarEstudiante(id){
+    if(confirm("¿Seguro que deseas borrar el estudiante " + id + "?")){
+        window.location.href = "/estudiantes/borrar/" + id;
+    }
+}
+
+// ================================
+// INSTITUTOS
+// ================================
+
+function verInstituto(id){
+    alert("Ver instituto " + id);
+}
+
+function editarInstituto(id){
+    if(confirm("¿Editar instituto " + id + "?")){
+        window.location.href = "/institutos/editar/" + id;
+    }
+}
+
+function borrarInstituto(id){
+    if(confirm("¿Seguro que deseas borrar el instituto " + id + "?")){
+        window.location.href = "/institutos/borrar/" + id;
+    }
+}

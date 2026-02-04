@@ -1,43 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     {% include "fragments/head.html" %}
 </head>
-
 <body>
 
 {% include "fragments/navbar.html" %}
 
-<main class="content-container">
+<div class="content-container">
 
-<h2>Listado de Estudiantes</h2>
+<h1>Listado de Estudiantes</h1>
 
-<a href="/estudiantes/nuevo" class="btn blue">Nuevo Estudiante</a>
+<div style="text-align:center;">
+    <a href="/estudiantes/nuevo" class="btn blue">Nuevo Estudiante</a>
+</div>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Email</th>
-        <th>Instituto</th>
-    </tr>
+<div class="table-container">
+<table class="neon-table">
 
-    {% for e in estudiantes %}
-    <tr>
-        <td>{{ e.id }}</td>
-        <td>{{ e.nombre }}</td>
-        <td>{{ e.apellidos }}</td>
-        <td>{{ e.email }}</td>
-        <td>{{ e.instituto.nombre }}</td>
-    </tr>
-    {% endfor %}
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Email</th>
+    <th>Instituto</th>
+    <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+{% for e in estudiantes %}
+<tr>
+    <td>{{ e.id }}</td>
+    <td>{{ e.nombre }}</td>
+    <td>{{ e.apellidos }}</td>
+    <td>{{ e.email }}</td>
+    <td>{{ e.instituto_id }}</td>
+
+    <td>
+        <div class="actions">
+
+            <!-- VER -->
+            <button class="action-btn"
+                onclick="verEstudiante({{e.id}})">👁</button>
+
+            <!-- EDITAR -->
+            <button class="action-btn action-edit"
+                onclick="editarEstudiante({{e.id}})">✏</button>
+
+            <!-- BORRAR -->
+            <button class="action-btn action-delete"
+                onclick="borrarEstudiante({{e.id}})">🗑</button>
+
+        </div>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+
 </table>
+</div>
 
-</main>
+<button class="back-btn" onclick="history.back()">⬅ Volver</button>
 
-{% include "fragments/footer.html" %}
-
+<script src="{{ url_for('static', path='script.js') }}"></script>
 </body>
 </html>
